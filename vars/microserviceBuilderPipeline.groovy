@@ -62,7 +62,7 @@ def call(body) {
   def chartFolder = userSpecifiedChartFolder ?: ((env.CHART_FOLDER ?: "").trim() ?: 'chart')
   def libertyLicenseJarName = config.libertyLicenseJarName ?: (env.LIBERTY_LICENSE_JAR_NAME ?: "").trim()
   def extraGitOptions = config.gitOptions ?: (env.EXTRA_GIT_OPTIONS ?: "").trim()
-  def maven = (config.mavenImage == null) ? 'maven:3.6.0-jdk-8-alpine' : config.mavenImage
+  def maven = (config.mavenImage == null) ? 'mycluster.icp:8500/default/newmaven' : config.mavenImage
   def docker = (config.dockerImage == null) ? 'docker:18.06.1-ce' : config.dockerImage
   def kubectl = (config.kubectlImage == null) ? 'ibmcom/microclimate-utils:1901' : config.kubectlImage
   def helm = (config.helmImage == null) ? 'ibmcom/microclimate-k8s-helm:v2.9.1' : config.helmImage
